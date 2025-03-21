@@ -27,7 +27,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_product, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_product, parent, false);
         return new ProductViewHolder(view);
     }
 
@@ -36,7 +36,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Product product = productList.get(position);
         holder.tvName.setText(product.getName());
         holder.tvPrice.setText("$" + product.getPrice());
-        Glide.with(context).load(product.getImage()).into(holder.ivProductImage);
+        Glide.with(context).load(product.getImages()).into(holder.ivProductImage);
     }
 
     @Override

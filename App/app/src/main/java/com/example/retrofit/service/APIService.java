@@ -15,24 +15,24 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface APIService {
     @GET("categories.php")
     Call<List<Category>> getCategoryAll();
 
-
-    @POST("register.php")
+    @POST("/api/authen/register")
     Call<RegisterResponse> registerUser(@Body User user);
 
-    @POST("verify-otp.php")
+    @POST("/api/authen/verify")
     Call<RegisterResponse> verifyOtp(@Body OtpRequest otpRequest);
 
-    @POST("login.php")
+    @POST("/api/authen/login")
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
 
-    @GET("categories.php")
+    @GET("/api/categories")
     Call<List<Category>> getAllCategories();
 
-    @GET("products.php")
-    Call<List<Product>> getProducts();
+    @GET("/category/")
+    Call<List<Product>> getProducts(@Query("categoryId") Long categoryId);
 }
