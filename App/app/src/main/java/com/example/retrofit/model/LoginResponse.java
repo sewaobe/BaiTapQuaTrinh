@@ -1,3 +1,4 @@
+//22110281-Nguyen Duc Cong Anh
 package com.example.retrofit.model;
 
 import com.google.gson.annotations.SerializedName;
