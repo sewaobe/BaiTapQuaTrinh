@@ -9,8 +9,8 @@ public class Category implements Serializable {
     private int id;
     @SerializedName("name")
     private String name;
-    @SerializedName("images")
-    private String images;
+    @SerializedName("image")
+    private String image;
     @SerializedName("description")
     private String description;
 
@@ -30,12 +30,12 @@ public class Category implements Serializable {
         this.id = id;
     }
 
-    public String getImages() {
-        return images;
+    public String getImage() {
+        return image;
     }
 
-    public void setImages(String images) {
-        this.images = images;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getName() {

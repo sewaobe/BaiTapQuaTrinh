@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.DTO.LoginResponse;
 import com.example.demo.DTO.RequestOTPVerify;
 import com.example.demo.TOTPUtil;
 import com.example.demo.entitys.User;
@@ -7,6 +8,7 @@ import com.example.demo.repositorys.UserRepository;
 import com.example.demo.services.AuthService;
 import com.example.demo.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +25,7 @@ public class AuthenticationController {
     AuthService authService;
     // 🔹 Đăng ký tài khoản -> Gửi OTP qua email
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody User user) {
+    public ResponseEntity<LoginResponse> register(@RequestBody User user) {
 
 
         try {
@@ -32,33 +34,43 @@ public class AuthenticationController {
 
             // Gửi OTP qua email
             emailService.sendOtpEmail(user.getEmail(), otp);
+            LoginResponse loginResponse = new LoginResponse(true, "Đăng ký thành công! Vui lòng kiểm tra email để nhận OTP.");
 
-            return ResponseEntity.ok("✅ Đăng ký thành công! Vui lòng kiểm tra email để nhận OTP.");
+            return ResponseEntity.ok(loginResponse);
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("❌ Lỗi khi tạo OTP: " + e.getMessage());
+            LoginResponse loginResponse = new LoginResponse(false, "Loi tao OTP");
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(loginResponse);
         }
     }
 
     // ✅ 2. API Xác thực OTP
     @PostMapping("/verify")
-    public ResponseEntity<String> verifyOtp(@RequestBody RequestOTPVerify requestOTPVerify) {
+    public ResponseEntity<LoginResponse> verifyOtp(@RequestBody RequestOTPVerify requestOTPVerify) {
         try {
+            System.out.println(requestOTPVerify.getUser().getEmail());
             // Kiểm tra OTP hợp lệ hay không
             if (TOTPUtil.verifyOtp(requestOTPVerify.getUser().getEmail(), requestOTPVerify.getOtp())) {
                 userRepository.save(requestOTPVerify.getUser());
-                return ResponseEntity.ok("✅ Xác thực thành công!");
+                LoginResponse loginResponse = new LoginResponse(true, "Xác thực thành công!");
+
+                return ResponseEntity.ok(loginResponse);
+
             } else {
-                return ResponseEntity.badRequest().body("❌ OTP không hợp lệ hoặc đã hết hạn!");
+                LoginResponse loginResponse = new LoginResponse(false, "Xác thực thất bại!");
+
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(loginResponse);
             }
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("❌ Lỗi xác thực OTP: " + e.getMessage());
-        }
+            LoginResponse loginResponse = new LoginResponse(false, "Xác thực lỗi từ hệ thống");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(loginResponse);        }
     }
 
 
     // 🔹 Đăng nhập
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody User user) {
+    public ResponseEntity<LoginResponse> login(@RequestBody User user) {
+        System.out.println(user.getPassword());
         return authService.login(user);
     }
 }

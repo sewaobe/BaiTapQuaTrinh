@@ -12,20 +12,20 @@ public class User implements Serializable {
     @SerializedName("password")
     private String password;
 
-    @SerializedName("sodienthoai")
-    private String sodienthoai;
+    @SerializedName("phone")
+    private String phone;
 
-    public User(String email, String password, String sodienthoai) {
+    public User(String email, String password, String phone) {
         this.email = email;
         this.password = password;
-        this.sodienthoai = sodienthoai;
+        this.phone = phone;
     }
 
-    public User(String email, String name, String password, String sodienthoai) {
+    public User(String email, String name, String password, String phone) {
         this.email = email;
         this.name = name;
         this.password = password;
-        this.sodienthoai = sodienthoai;
+        this.phone = phone;
     }
 
     public String getName() {
@@ -44,10 +44,13 @@ public class User implements Serializable {
         return password;
     }
 
-    public String getSodienthoai() {
-        return sodienthoai;
+    public String getPhone() {
+        return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -57,7 +60,4 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public void setSodienthoai(String sodienthoai) {
-        this.sodienthoai = sodienthoai;
-    }
 }

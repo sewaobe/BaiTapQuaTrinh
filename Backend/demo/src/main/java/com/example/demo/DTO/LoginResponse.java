@@ -1,30 +1,26 @@
-package com.example.retrofit.model;
+package com.example.demo.DTO;
 
-import com.google.gson.annotations.SerializedName;
-import java.io.Serializable;
-
-public class LoginResponse implements Serializable {
-
-    @SerializedName("success")
+public class LoginResponse {
     private boolean success;
-
-    @SerializedName("message")
     private String message;
 
     public LoginResponse() {}
 
+    public LoginResponse(boolean success, String message) {
+        this.success = success;
+        this.message = message;
+    }
+
+    // Getters & Setters
     public boolean isSuccess() {
         return success;
     }
-
     public void setSuccess(boolean success) {
         this.success = success;
     }
-
     public String getMessage() {
         return message;
     }
-
     public void setMessage(String message) {
         this.message = message;
     }

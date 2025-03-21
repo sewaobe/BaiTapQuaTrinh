@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private void GetCategory() {
 //Goi Interface trong APIService
         apiService = RetrofitClient.getRetrofit().create(APIService.class);
-        apiService.getCategoryAll().enqueue(new Callback<List<Category>>() {
+        apiService.getAllCategories().enqueue(new Callback<List<Category>>() {
             @Override
             public void onResponse (Call<List<Category>> call, Response<List<Category>> response) {
                 if (response.isSuccessful()) {

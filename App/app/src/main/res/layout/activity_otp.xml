@@ -53,6 +53,7 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editTextOTP"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="@null"
@@ -73,11 +74,12 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:id="@+id/btnVerify"
                 android:layout_width="match_parent"
                 android:layout_height="73dp"
                 android:layout_gravity="center_horizontal"
-                android:contentDescription="OTP"
                 android:background="@android:color/transparent"
+                android:contentDescription="OTP"
                 android:padding="10dp"
                 android:src="@drawable/button_background_blue" />
 
