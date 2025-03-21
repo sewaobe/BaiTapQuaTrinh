@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class LoginResponse implements Serializable {
 
-    @SerializedName("username")
+    @SerializedName("email")
     private String email;
 
 
