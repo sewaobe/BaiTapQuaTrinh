@@ -28,7 +28,7 @@ public class ProductController {
         if (!categoryRepository.existsById(categoryId)) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Category not found");
         }
-        return ResponseEntity.ok(productRepository.findByCategoryId(categoryId));
+        return ResponseEntity.ok(productRepository.findByCategoryIdOrderByPriceAsc(categoryId));
     }
 
     // API 3: Top 10 sản phẩm bán chạy
