@@ -30,10 +30,7 @@ public interface APIService {
 
     @POST("login.php")
     Call<LoginResponse> loginUser(@Body LoginRequest loginRequest);
-
-    @GET("categories.php")
-    Call<List<Category>> getAllCategories();
-
+    
     @GET("products.php")
     Call<List<Product>> getProducts();
 }
