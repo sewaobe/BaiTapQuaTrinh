@@ -17,6 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+<<<<<<< .mine
             android:name=".OtpActivity"
             android:exported="true" />
         <activity
@@ -28,6 +29,19 @@
         <activity
             android:name=".IntroActivity"
             android:exported="true" >
+=======
+            android:name=".Home"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+
+
+
+
+
+>>>>>>> .theirs
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
