@@ -4,13 +4,13 @@ Full source code nằm ở nhánh `master`.
 
 ## Bảng phân công
 
-| MSSV       | Họ Tên               | Nhiệm Vụ                      | Đánh Giá         |
+| MSSV       | Họ Tên               | Nhiệm Vụ                      | Tự Đánh Giá Điểm hoàn thành         |
 |------------|----------------------|--------------------------------|------------------|
-| 22110285   | Nguyễn Phúc Bảo      | API All Category, API product, Fix bug, Connect App With Backend             | ✅ Hoàn thành    |
-| 22110348   | Phan Lê Chí Khanh        | Câu 1, 2                   | ✅ Hoàn thành   |
-| 22110314   | Nguyễn Ngọc Kín Hào            |Câu 3, 4 | ✅ Hoàn thành   |
-| 22110292   | Nguyễn Ngọc Doanh Doanh          | Câu 5, 6                       | ✅ Hoàn thành    |
-| 22110281   | Nguyễn Đức Công Anh         | API Register, Login                      | ✅ Hoàn thành    |
+| 22110285   | Nguyễn Phúc Bảo      | API All Category, API product by Category, API Register, API Login, Fix bug, Add Lazy Loading, Connect App With Backend (Call API)            | 10  |
+| 22110348   | Phan Lê Chí Khanh        | Câu 5, 6 (Viết Adapter Category + Adapter Product + UI item_Product)                   | 9 |
+| 22110314   | Nguyễn Ngọc Kín Hào            |Câu 1, 4 (Viết UI cho trang Home + Bottom Navigation) | 9 |
+| 22110292   | Nguyễn Ngọc Doanh Doanh          | Câu 1, 2, 3 (Viết UI cho trang Intro, Login, Register, VerifyOTP)                       | 9  |
+| 22110281   | Nguyễn Đức Công Anh         | Viết các model, định nghĩa các phương thức trong APIservice, có viết API Login, Register nhưng xài NodeJS nên không sử dụng trong project trên                    | 9 |
 
 
 
